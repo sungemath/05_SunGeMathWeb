@@ -1,5 +1,5 @@
 
-/* 嚴格搜尋模式：隱藏所有包含「缺少字詞」的結果 */
-.md-search-result__item:has(.md-search-result__meta del) {
+/* 嚴格搜尋模式：霸道隱藏所有包含「缺少字詞」的結果 */
+li.md-search-result__item:has(del) {
     display: none !important;
 }
