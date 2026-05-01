@@ -8,23 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!searchInput) return;
 
         const query = searchInput.value.trim().toLowerCase();
-        if (!query) return;
-
-        // 將使用者的輸入用「空白鍵」切開，變成多個嚴格條件
-        const keywords = query.split(/\s+/);
+        // 取得所有關鍵字
+        const keywords = query ? query.split(/\s+/) : [];
 
         const resultItems = document.querySelectorAll(".md-search-result__item");
         resultItems.forEach(item => {
             const article = item.querySelector(".md-search-result__article");
             if (!article) return;
 
-            // 檢查這部影片的真實標題與內容，是否包含「所有」使用者打的字！
+            // 如果搜尋框是空的，確保所有東西都恢復原狀
+            if (keywords.length === 0) {
+                item.style.display = ""; 
+                return;
+            }
+
+            // 檢查這部影片是否包含「所有」使用者打的字
             const text = article.textContent.toLowerCase();
             const isMatch = keywords.every(kw => text.includes(kw));
 
             if (!isMatch) {
-                // 如果不符合嚴格條件，直接隱藏！
-                item.style.cssText = "display: none !important;";
+                item.style.display = "none"; // 條件不符，隱藏
+            } else {
+                item.style.display = "";     // 🌟 關鍵修復：條件符合時，必須恢復顯示！
             }
         });
     });
