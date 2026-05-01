@@ -1,6 +1,0 @@
-
-/* 只針對包含 <del> (刪除線) 的小區塊進行隱藏 */
-.md-search-result__item div:has(del),
-.md-search-result__item p:has(del) {
-    display: none !important;
-}
