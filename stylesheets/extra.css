@@ -1,5 +1,5 @@
 
-/* 嚴格搜尋模式：霸道隱藏所有包含「缺少字詞」的結果 */
-li.md-search-result__item:has(del) {
+/* 隱藏結巴大腦產生的提示，讓畫面保持乾淨 */
+.md-search-result__meta {
     display: none !important;
 }
