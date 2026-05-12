@@ -1,2 +1,4 @@
 
-/* 已解除隱藏魔法，讓結巴大腦正常發揮 */
+.md-search-result__item .md-search-result__meta {
+    display: none !important;
+}
